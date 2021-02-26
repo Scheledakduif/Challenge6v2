@@ -9,8 +9,16 @@ if(isset($_GET['lang'])) {
     $lang = $_GET['lang'];
 }
 
-require_once("assets/languages/lang.$lang.php")
+require_once("assets/languages/lang.$lang.php");
 
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM tb_cars c INNER JOIN tb_image i ON c.id = i.car_id WHERE c.id = ?";
+  $data = array($id);
+  require_once('assets/includes/connection.inc.php');
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute($data);
+  $result = $stmt->fetchAll();
+  $row = $result[0];
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +43,7 @@ require_once("assets/languages/lang.$lang.php")
     
     <body>
     
-    <!-- ***** Preloader Start ***** -->
+    <!-- ***** Preloader Start
     <div id="js-preloader" class="js-preloader">
       <div class="preloader-inner">
         <span class="dot"></span>
@@ -46,7 +54,7 @@ require_once("assets/languages/lang.$lang.php")
         </div>
       </div>
     </div>
-    <!-- ***** Preloader End ***** -->
+   ***** Preloader End ***** -->
     
     
     <!-- ***** Header Area Start ***** -->
@@ -61,8 +69,8 @@ require_once("assets/languages/lang.$lang.php")
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2><small><del>$12 999</del></small> <em>$11 779</em></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                        <h2><small><del>€ <?php echo $row['price'];?></del></small> <em>€ <?php echo $row['discountprice'];?></em></h2>
+                        <p><?php echo V_PRICECAR; ?></p>
                     </div>
                 </div>
             </div>
@@ -109,142 +117,110 @@ require_once("assets/languages/lang.$lang.php")
             <div class="row" id="tabs">
               <div class="col-lg-4">
                 <ul>
-                  <li><a href='#tabs-1'><i class="fa fa-cog"></i> Vehicle Specs</a></li>
-                  <li><a href='#tabs-2'><i class="fa fa-info-circle"></i> Vehicle Description</a></li>
-                  <li><a href='#tabs-3'><i class="fa fa-plus-circle"></i> Vehicle Extras</a></li>
-                  <li><a href='#tabs-4'><i class="fa fa-phone"></i> Contact Details</a></li>
+                  <li><a href='#tabs-1'><i class="fa fa-cog"></i> <?php echo V_SPECS2; ?></a></li>
+                  <li><a href='#tabs-2'><i class="fa fa-phone"></i> Contact Details</a></li>
                 </ul>
               </div>
               <div class="col-lg-8">
                 <section class='tabs-content' style="width: 100%;">
                   <article id='tabs-1'>
-                    <h4>Vehicle Specs</h4>
+                  <?php echo V_SPECS; ?>
 
                     <div class="row">
                        <div class="col-sm-6">
-                            <label>Type</label>
-                       
-                            <p>Used vehicle</p>
+                            <label><?php echo V_CONDITION; ?></label>
+                            <p><?php echo $row['carcondition'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Make</label>
+                            <label><?php echo V_BRAND; ?></label>
                        
-                            <p>Lorem ipsum dolor sit</p>
+                            <p><?php echo $row['brand'];?></p>
                        </div>
 
                        <div class="col-sm-6">
                             <label> Model</label>
                        
-                            <p>Lorem ipsum dolor sit</p>
+                            <p><?php echo $row['type'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>First registration</label>
+                            <label><?php echo V_REGISTRATION; ?></label>
                        
-                            <p>05/2010</p>
+                            <p><?php echo $row['registered'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Mileage</label>
+                            <label><?php echo V_KM; ?></label>
                        
-                            <p>5000 km</p>
+                            <p><?php echo $row['kilometerstand'];?> km</p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Fuel</label>
+                            <label><?php echo V_FUEL; ?></label>
                        
-                            <p>Diesel</p>
+                            <p><?php echo $row['brandstof'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Engine size</label>
+                            <label><?php echo V_ENGINE; ?></label>
                        
-                            <p>1800 cc</p>
+                            <p><?php echo $row['enginesize'];?> cc</p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Power</label>
+                            <label><?php echo V_HP; ?></label>
                        
-                            <p>85 hp</p>
+                            <p><?php echo $row['horsepower'];?> hp</p>
                        </div>
 
 
                        <div class="col-sm-6">
-                            <label>Gearbox</label>
+                            <label><?php echo V_TRANSMISSION; ?></label>
                        
-                            <p>Manual</p>
+                            <p><?php echo $row['transmission'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Number of seats</label>
+                            <label><?php echo V_SEATS; ?></label>
                        
-                            <p>4</p>
+                            <p><?php echo $row['seats'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Doors</label>
+                            <label><?php echo V_DOORS; ?></label>
                        
-                            <p>2/3</p>
+                            <p><?php echo $row['doors'];?></p>
                        </div>
 
                        <div class="col-sm-6">
-                            <label>Color</label>
+                            <label><?php echo V_COLOR; ?></label>
                        
-                            <p>Black</p>
+                            <p><?php echo $row['color'];?></p>
                        </div>
                     </div>
                   </article>
                   <article id='tabs-2'>
-                    <h4>Vehicle Description</h4>
-                    
-                    <p>- Colour coded bumpers <br> - Tinted glass <br> - Immobiliser <br> - Central locking - remote <br> - Passenger airbag <br> - Electric windows <br> - Rear head rests <br> - Radio <br> - CD player <br> - Ideal first car <br> - Warranty <br> - High level brake light <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
-                   </article>
-                  <article id='tabs-3'>
-                    <h4>Vehicle Extras</h4>
-
-                    <div class="row">   
-                        <div class="col-sm-6">
-                            <p>ABS</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p>Leather seats</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p>Power Assisted Steering</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p>Electric heated seats</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p>New HU and AU</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p>Xenon headlights</p>
-                        </div>
-                    </div>
-                  </article>
-                  <article id='tabs-4'>
                     <h4>Contact Details</h4>
 
                     <div class="row">   
                         <div class="col-sm-6">
-                            <label>Name</label>
+                            <label><?php echo V_NAME; ?></label>
 
-                            <p>John Smith</p>
+                            <p>Vista Cars</p>
                         </div>
                         <div class="col-sm-6">
-                            <label>Phone</label>
+                            <label><?php echo V_PHONE; ?></label>
 
-                            <p>123-456-789 </p>
+                            <p>043 666 420 </p>
                         </div>
                         <div class="col-sm-6">
-                            <label>Mobile phone</label>
-                            <p>456789123 </p>
+                            <label><?php echo V_MOBILEPHONE; ?></label>
+                            <p>+31 6 001 155 11 </p>
                         </div>
                         <div class="col-sm-6">
                             <label>Email</label>
-                            <p><a href="#">john@carsales.com</a></p>
+                            <p><a href="#">info@vistacars.nl</a></p>
                         </div>
                     </div>
                   </article>

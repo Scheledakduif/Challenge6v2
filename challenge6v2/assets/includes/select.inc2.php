@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM tb_cars INNER JOIN tb_image ON tb_cars.id = tb_image.car_id WHERE tb_cars.status = '1' OR tb_cars.status= '2'";
+$sql = "SELECT * FROM tb_cars INNER JOIN tb_image ON tb_cars.id = tb_image.car_id WHERE tb_cars.status= '2'";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();

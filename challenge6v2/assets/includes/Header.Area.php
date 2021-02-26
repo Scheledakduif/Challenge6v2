@@ -20,8 +20,21 @@
                             <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?php echo NAV_LANG; ?></a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="?lang=nl">Nederlands</a>
-                                    <a class="dropdown-item" href="?lang=en">English</a>
+                                    <?php 
+                                        $thisPage = $_SERVER['PHP_SELF'];
+                                        $qs = $_SERVER['QUERY_STRING'];
+                                        $qs = str_replace('lang=nl', '', $qs);
+                                        $qs = str_replace('lang=en', '', $qs);
+                                        $qs = str_replace('&', '', $qs);
+
+
+                                        if($qs == false) { $teken = '?'; } else { $teken = '?'. $qs .'&';  }
+                                        $url_nl = $thisPage . $teken . "lang=nl";
+                                        $url_en = $thisPage . $teken . "lang=en";
+                                    ?>
+
+                                    <a class="dropdown-item" href="<?php echo $url_nl; ?>">Nederlands</a>
+                                    <a class="dropdown-item" href="<?php echo $url_en; ?>">English</a>
                                 </div>
                             </li>
                             <li><?php include_once("assets/includes/inloguitlog.php");?></li>

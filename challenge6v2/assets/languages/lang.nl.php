@@ -67,6 +67,34 @@
 
 
 
+    //Quatation
+    define("QUA_ASK", "<h2>Proefrit / Offerte <em>formulier</em></h2>");
+    define("QUA_DESC", "<p>Vul dit formulier in om een proefrit of een offerte aan te vragen</p>");
+
+    //Car details
+    define("V_SPECS", "<h4>Voertuig Specs</h4>");
+    define("V_SPECS2", "Voertuig Specs");
+    define("V_DESC", "Voertuig Beschijving");
+    define("V_CONTACT", "Contact Details");
+    define("V_KM", "Kilometerstand");
+    define("V_BRAND", "Merk");
+    define("V_FUEL", "Brandstof");
+
+    define("V_NAME", "Naam");
+    define("V_PHONE", "Telefoon");
+    define("V_MOBILEPHONE", "Mobiele Telefoon");
+    define("V_TRANSMISSION", "Transmissie");
+    define("V_CONDITION", "Conditie");
+    define("V_ENGINE", "Moter inhoud");
+    define("V_DOORS", "Deuren");
+
+    define("V_REGISTRATION", "Eerste registratie");
+    define("V_HP", "Kracht");
+    define("V_SEATS", "Aantal stoelen");
+    define("V_COLOR", "Kleur");
+    define("V_PRICECAR", "Hier boven staat de prijs van deze auto");
+
+
     
 
 

@@ -68,7 +68,50 @@
     define("FAQ_Q4", "<h4><i class='fa fa-question-circle'></i> Where to find the vehicle specifications?</h4>");
     define("FAQ_A4", "<p> By pressing on your chosen car, and there you'll find the option vehicle specifications.</p>");
 
+    //Quatation
+    define("QUA_ASK", "<h2>Test drive / Quatation <em>form</em></h2>");
+    define("QUA_DESC", "<p>Fill in this form to request a testdrive or a quatation</p>");
 
+
+    //Car details
+    define("V_SPECS", "<h4>Vehicle Specs</h4>");
+    define("V_SPECS2", "Vehicle Specs");
+    define("V_DESC", "Vehicle Description");
+    define("V_CONTACT", "Contact Details");
+    define("V_KM", "Mileage");
+    define("V_BRAND", "Make");
+    define("V_FUEL", "Fuel");
+
+    define("V_NAME", "Name");
+    define("V_PHONE", "Phone");
+    define("V_MOBILEPHONE", "Mobile Phone");
+    define("V_TRANSMISSION", "Transmission");
+    define("V_CONDITION", "Condition");
+    define("V_ENGINE", "Engine size");
+    define("V_DOORS", "Doors");
+
+    define("V_REGISTRATION", "First registration");
+    define("V_HP", "Power");
+    define("V_SEATS", "Number of seats");
+    define("V_COLOR", "Color");
+    define("V_PRICECAR", "Up here you can find this cars price");
+
+   
+
+   
+
+
+
+   
+    
+    
+    
+
+    
+
+
+
+   
 
 
     

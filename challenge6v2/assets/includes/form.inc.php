@@ -16,6 +16,20 @@
 
     <input type="text" name="discountprice" placeholder="Discount Price"/>
 
+    <input type="text" name="carcondition" placeholder="Car Condition"/>
+
+    <input type="text" name="enginesize" placeholder="Engine Size"/>
+
+    <input type="text" name="doors" placeholder="Doors"/>
+
+    <input type="text" name="registered" placeholder="First Registration"/>
+
+    <input type="text" name="horsepower" placeholder="Horsepower"/>
+    
+    <input type="text" name="seats" placeholder="Seats"/>
+    
+    <input type="text" name="color" placeholder="Color"/>
+
     <input type='file' name='files[]' multiple />
    
     <input type="hidden" name="frmGegevens" value="frmGegevens"/>

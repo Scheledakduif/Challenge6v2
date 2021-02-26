@@ -1,4 +1,5 @@
 <?php
+//phpinfo();die;
 session_start();
 
 
@@ -87,81 +88,38 @@ require_once("assets/languages/lang.$lang.php")
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                            </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-
-                            <ul class="social-icons">
-                                <li><a href="car-details.php">+ View Car</a></li>
-                            </ul>
-                        </div>
+                <!-- ***** Fleet Starts ***** -->
+  <section class="section" id="trainers">
+        <div class="container">
+            <div class="contact-form">
+                <form action="#" id="contact">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                            </span>
+                </form>
+            </div>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+<?php
+    if(isset($_POST['frm_adminform'])) {
+        //opslaan van de gegevens
+    
+        //print_r($_POST); //developers code!
 
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
+        include_once("assets/includes/connection.inc.php"); //conntectie DB
+        include_once("assets/includes/admin_verwerkform.inc.php");    //gegevens uit formulier verzamelen
+        include_once("assets/includes/adminform.inc.php");     //opslaan gegevens uit DB
+    } 
+    include_once("assets/includes/connection.inc.php"); //conntectie DB
+    include_once("assets/includes/select.inc2.php"); //toon gegevens uit DB
+    ?>  
 
-                            <ul class="social-icons">
-                                <li><a href="car-details.php">+ View Car</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                            </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-
-                            <ul class="social-icons">
-                                <li><a href="car-details.php">+ View Car</a></li>
-                            </ul>
+</div>
+    </section>
+    <!-- ***** Fleet Ends ***** -->
                         </div>
                     </div>
                 </div>
             </div>
-
-            <br>
 
             <div class="main-button text-center">
                 <a href="cars.php"><?php echo VIEW_CAR; ?></a>
