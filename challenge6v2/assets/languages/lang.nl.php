@@ -94,7 +94,7 @@
     define("V_COLOR", "Kleur");
     define("V_PRICECAR", "Hier boven staat de prijs van deze auto");
 
-
+    define("V_OFFERTE", "Proefrit / Offerte");
     
 
 

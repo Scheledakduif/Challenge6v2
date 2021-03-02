@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 $lang = substr($lang, 0,2);
 
@@ -10,17 +9,51 @@ if(isset($_GET['lang'])) {
 }
 
 require_once("assets/languages/lang.$lang.php");
+require_once("assets/includes/connection.inc.php");
+$id = $_GET['id'];
+$sql = "SELECT * FROM tb_cars WHERE tb_cars.id = ? AND (tb_cars.status = '1' OR tb_cars.status= '2')";
+$data = array($id);
 
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM tb_cars c INNER JOIN tb_image i ON c.id = i.car_id WHERE c.id = ?";
-  $data = array($id);
-  require_once('assets/includes/connection.inc.php');
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute($data);
-  $result = $stmt->fetchAll();
-  $row = $result[0];
+$stmt = $pdo->prepare($sql);
+$stmt->execute($data);
+$result = $stmt->fetchAll(); // get result
 
-?>
+//print_r($result);
+
+foreach($result as $key => $row) {
+    // haal max 1 plaatje op per auto met id $row['id']
+    $sql = "SELECT * FROM tb_image WHERE car_id = ?";
+    $id = $row['id'];
+    $data = array($id);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($data);
+    $resultImages = $stmt->fetchAll(); // get result
+
+    $imageHtml = "";
+    $sliderinfo = "";
+    $i = 0;
+    $active = "active";
+    foreach($resultImages as $index => $rowImage) {
+      //Print_r ($rowImage);
+      $carid = $rowImage['car_id'];
+      $name =  $rowImage['name'];
+
+      $imageHtml .= <<<IMAGE
+                <div class="carousel-item $active">
+                  <img class="d-block w-100" src="autoimages/$carid/$name" alt="First slide" height="800px">
+                </div>
+IMAGE;
+
+      $sliderinfo .= <<<INFO
+        <li data-target="#carouselExampleIndicators" data-slide-to="$i" class="$active"></li>
+INFO;
+      $i++;
+      if($active = "active") { $active = ""; }
+    }
+    //print $imageHtml;die;
+}
+
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,12 +119,13 @@ require_once("assets/languages/lang.$lang.php");
 
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+<?php echo $sliderinfo; ?>
               </ol>
               <div class="carousel-inner">
-                <div class="carousel-item active">
+              <!-- Voor ieder plaatje in het database resultaat van het ophalen van plaatjes voor de auto -->
+<?php echo $imageHtml; ?>
+
+              <!--  <div class="carousel-item active">
                   <img class="d-block w-100" src="assets/images/car-image-1-1200x600.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
@@ -99,7 +133,7 @@ require_once("assets/languages/lang.$lang.php");
                 </div>
                 <div class="carousel-item">
                   <img class="d-block w-100" src="assets/images/car-image-1-1200x600.jpg" alt="Third slide">
-                </div>
+                </div> -->
               </div>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -198,6 +232,11 @@ require_once("assets/languages/lang.$lang.php");
                        
                             <p><?php echo $row['color'];?></p>
                        </div>
+                       <div class="col-sm-6">
+                       <form action="quatation.php">
+                   <input type="submit" value="<?php echo V_OFFERTE; ?>"  class="btn btn-primary" />
+                    </form>                     
+                       </div>
                     </div>
                   </article>
                   <article id='tabs-2'>
@@ -229,6 +268,7 @@ require_once("assets/languages/lang.$lang.php");
             </div>
         </div>
     </section>
+
     <!-- ***** Fleet Ends ***** -->
     
     <!-- FOOTER -->

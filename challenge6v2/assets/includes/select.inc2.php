@@ -1,5 +1,6 @@
 <?php
-$sql = "SELECT * FROM tb_cars INNER JOIN tb_image ON tb_cars.id = tb_image.car_id WHERE tb_cars.status= '2'";
+// $sql = "SELECT * FROM tb_cars INNER JOIN tb_image ON tb_cars.id = tb_image.car_id WHERE tb_cars.status = '1' OR tb_cars.status= '2'";
+$sql = "SELECT * FROM tb_cars WHERE tb_cars.status= '2'";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
@@ -7,10 +8,20 @@ $result = $stmt->fetchAll(); // get result
 
 echo "<div class='row'>";
 foreach($result as $key => $row) {
+    // haal max 1 plaatje op per auto met id $row['id']
+    $sql = "SELECT * FROM tb_image WHERE car_id = ? LIMIT 1";
+    $id = $row['id'];
+    $data = array($id);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($data);
+    $resultImages = $stmt->fetchAll(); // get result
+    $imageRow = $resultImages[0];
+    //echo print_r($resultImages);
+
     echo "<div class='col-lg-4'>";
     echo '<div class="trainer-item">';
     echo '<div class="image-thumb">';
-    echo "<img src='" . "autoimages/" .$row['id'] . "/" . $row['name'] . "' '>";
+    echo "<img src='" . "autoimages/" .$imageRow['car_id'] . "/" . $imageRow['name'] . "' '>";
     echo "</div>"; //end image
     echo '<div class="down-content">';
     echo "<span>";

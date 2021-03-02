@@ -96,7 +96,7 @@ require_once("assets/languages/lang.$lang.php")
         </div>
 
         <div class="fcf-form-group">
-            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
+            <button type="submit" id="fcf-button" class="btn btn-primary">Send Message</button>
         </div>
 
     </form>

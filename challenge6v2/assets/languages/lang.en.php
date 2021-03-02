@@ -96,6 +96,10 @@
     define("V_COLOR", "Color");
     define("V_PRICECAR", "Up here you can find this cars price");
 
+    define("V_OFFERTE", "Testdrive / Quatation");
+
+
+   
    
 
    
