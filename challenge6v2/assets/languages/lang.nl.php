@@ -98,5 +98,10 @@
     define("THX_CONTACT", "<h2>Bedankt voor het contacteren</h2>");
     define("THX_2", "<p>We zullen zo snel mogelijk contact openemen</p>");
     
+    //quatation
+    define("QUA_NAME", "Uw naam");
+    define("QUA_EMAIL", "Uw email adres");
+    define("QUA_MESSAGE", "Uw bericht");
+    define("QUA_SEND", "Verstuur Bericht");
 
 

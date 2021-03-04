@@ -70,16 +70,39 @@ require_once("assets/languages/lang.$lang.php")
 
     <div class="fcf-body">
 
-    <form action="assets/includes/mail_handler.php" method="post">
-First Name: <input type="text" name="first_name"><br>
-Last Name: <input type="text" name="last_name"><br>
-Email: <input type="text" name="email"><br>
-Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
-<input type="submit" name="submit" value="Submit" class="btn btn-primary">
-</form>
+    <div id="fcf-form">
+
+    <form id="fcf-form-id" class="fcf-form-class" method="post" action="assets/includes/contact-form-process.php">
+        
+        <div class="fcf-form-group">
+            <label for="Name" class="fcf-label"><?php echo QUA_NAME; ?></label>
+            <div class="fcf-input-group">
+                <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="Email" class="fcf-label"><?php echo QUA_EMAIL; ?></label>
+            <div class="fcf-input-group">
+                <input type="email" id="Email" name="Email" class="fcf-form-control" required>
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="Message" class="fcf-label"><?php echo QUA_MESSAGE; ?></label>
+            <div class="fcf-input-group">
+                <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <button type="submit" id="fcf-button" class="btn btn-primary"><?php echo QUA_SEND; ?></button>
+        </div>
+
+    </form>
+    </div>
 
 </div>
-
 
 
 

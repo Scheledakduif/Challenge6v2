@@ -100,6 +100,12 @@
     define("THX_CONTACT", "<h2>Thank you for contacting us</h2>");
     define("THX_2", "<p>We will contact you as soon as possible</p>");
 
+    //quatation
+    define("QUA_NAME", "Your name");
+    define("QUA_EMAIL", "Your email adress");
+    define("QUA_MESSAGE", "Your message");
+    define("QUA_SEND", "Send Message");
+
 
    
    

@@ -3,9 +3,9 @@
     function getdbconnection() {
 
         $dbhost     = "localhost";
-        $dbname     = "db_car_5";
+        $dbname     = "db_car_5_v2";
         $dbuser     = "Milan";
-        $dbpass     = "Milan";
+        $dbpass     = "no3e7?6H";
         $conn       = "";          // connection string
         $pdo        = "";          // handler
         $charset = 'utf8mb4';
