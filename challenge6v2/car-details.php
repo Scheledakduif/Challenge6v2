@@ -76,7 +76,7 @@ INFO;
     
     <body>
     
-    <!-- ***** Preloader Start
+    <!-- ***** Preloader Start ***** -->
     <div id="js-preloader" class="js-preloader">
       <div class="preloader-inner">
         <span class="dot"></span>
@@ -87,7 +87,7 @@ INFO;
         </div>
       </div>
     </div>
-   ***** Preloader End ***** -->
+    <!-- ***** Preloader End ***** -->
     
     
     <!-- ***** Header Area Start ***** -->
