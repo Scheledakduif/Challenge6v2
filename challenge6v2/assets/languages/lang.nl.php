@@ -95,6 +95,8 @@
     define("V_PRICECAR", "Hier boven staat de prijs van deze auto");
 
     define("V_OFFERTE", "Proefrit / Offerte");
+    define("THX_CONTACT", "<h2>Bedankt voor het contacteren</h2>");
+    define("THX_2", "<p>We zullen zo snel mogelijk contact openemen</p>");
     
 
 

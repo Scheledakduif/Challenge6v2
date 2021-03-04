@@ -97,6 +97,8 @@
     define("V_PRICECAR", "Up here you can find this cars price");
 
     define("V_OFFERTE", "Testdrive / Quatation");
+    define("THX_CONTACT", "<h2>Thank you for contacting us</h2>");
+    define("THX_2", "<p>We will contact you as soon as possible</p>");
 
 
    
